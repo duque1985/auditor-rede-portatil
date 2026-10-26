@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="pt-BR"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Auditoria de rede — 192.168.0.0/24</title>
+<style>
+:root{--bg:#f5f6f8;--card:#fff;--txt:#1c2127;--mut:#5d6975;--bd:#dde1e6;
+--alto:#c62828;--medio:#e65100;--baixo:#1565c0;--info:#607d8b;--ok:#2e7d32;--bt:#fff}
+@media (prefers-color-scheme: dark){:root{--bg:#13171b;--card:#1c2228;--txt:#e7ebef;--mut:#98a5b1;
+--bd:#2c353e;--alto:#ef5350;--medio:#ffa726;--baixo:#64b5f6;--info:#90a4ae;--ok:#66bb6a;--bt:#111}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--txt);font:15px/1.5 system-ui,-apple-system,Segoe UI,Roboto,sans-serif}
+main{max-width:1100px;margin:0 auto;padding:24px 16px 48px}
+h1{font-size:1.5rem;margin:0 0 4px}h2{font-size:1.15rem;margin:32px 0 10px}
+.mut{color:var(--mut);font-size:.9rem}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px;margin-top:18px}
+.card{background:var(--card);border:1px solid var(--bd);border-radius:10px;padding:14px}
+.num{font-size:1.9rem;font-weight:700;line-height:1.1}.rot{color:var(--mut);font-size:.85rem}
+.c-alto{color:var(--alto)}.c-medio{color:var(--medio)}.c-baixo{color:var(--baixo)}
+.tw{overflow-x:auto;background:var(--card);border:1px solid var(--bd);border-radius:10px}
+table{border-collapse:collapse;width:100%;min-width:640px}
+th,td{text-align:left;padding:9px 12px;border-bottom:1px solid var(--bd);vertical-align:top}
+th{font-size:.8rem;color:var(--mut);text-transform:uppercase;letter-spacing:.04em}
+tr:last-child td{border-bottom:0}
+.badge{display:inline-block;padding:1px 9px;border-radius:99px;font-size:.78rem;font-weight:600;color:var(--bt)}
+.b-alto{background:var(--alto)}.b-medio{background:var(--medio)}.b-baixo{background:var(--baixo)}
+.b-info{background:var(--info)}.b-ok{background:var(--ok)}
+.tag{display:inline-block;border:1px solid var(--bd);border-radius:6px;padding:0 6px;margin-left:6px;font-size:.75rem;color:var(--mut)}
+.tag-novo{border-color:var(--medio);color:var(--medio)}
+.aviso{background:var(--card);border-left:4px solid var(--medio);padding:10px 14px;border-radius:6px}
+footer{margin-top:36px;color:var(--mut);font-size:.82rem}
+</style></head><body><main>
+<h1>Auditoria de rede</h1>
+<div class="mut">26/10/2026 14:30 (EXEMPLO) · rede 192.168.0.0/24 · gateway 192.168.0.1 ·
+interface eth0 · perfil padrao · duração 3 min 12 s</div>
+
+<div class="cards"><div class="card"><div class="num c-n">3</div><div class="rot">Dispositivos</div></div><div class="card"><div class="num c-alto">1</div><div class="rot">Alertas altos</div></div><div class="card"><div class="num c-medio">3</div><div class="rot">Alertas médios</div></div><div class="card"><div class="num c-baixo">3</div><div class="rot">Alertas baixos</div></div><div class="card"><div class="num c-n">1</div><div class="rot">Novos desde a última vez</div></div></div>
+<h2>Alertas</h2>
+<div class="tw"><table><thead><tr><th>Nível</th><th>Dispositivo</th><th>Problema e recomendação</th></tr></thead>
+<tbody><tr><td><span class="badge b-alto">Alto</span></td><td>roteador.local<br><span class="mut">192.168.0.1</span></td><td><strong>Telnet aberto (porta 23)</strong><br><span class="mut">O Telnet trafega senhas sem criptografia. Desative ou troque por SSH.</span></td></tr><tr><td><span class="badge b-medio">Médio</span></td><td>roteador.local<br><span class="mut">192.168.0.1</span></td><td><strong>Painel do roteador acessível por HTTP (sem criptografia)</strong><br><span class="mut">Confira se a senha padrão foi trocada e se o acesso remoto pela internet está desativado.</span></td></tr><tr><td><span class="badge b-medio">Médio</span></td><td>Dispositivo sem nome<br><span class="mut">192.168.0.20</span></td><td><strong>Vídeo (RTSP) aberto — câmera/DVR (porta 554)</strong><br><span class="mut">Confira se a senha padrão foi trocada e se o firmware está atualizado.</span></td></tr><tr><td><span class="badge b-medio">Médio</span></td><td>Dispositivo sem nome<br><span class="mut">192.168.0.20</span></td><td><strong>Dispositivo novo na rede</strong><br><span class="mut">Não estava na auditoria anterior. Confirme se você o reconhece.</span></td></tr><tr><td><span class="badge b-baixo">Baixo</span></td><td>raspberrypi<br><span class="mut">192.168.0.5</span></td><td><strong>SSH ativo (porta 22)</strong><br><span class="mut">Confirme senha forte ou chave e desative o login direto do root.</span></td></tr><tr><td><span class="badge b-baixo">Baixo</span></td><td>raspberrypi<br><span class="mut">192.168.0.5</span></td><td><strong>Compartilhamento de arquivos (SMB) (porta 445)</strong><br><span class="mut">Confirme quem tem acesso e que o SMBv1 está desativado.</span></td></tr><tr><td><span class="badge b-baixo">Baixo</span></td><td>Dispositivo sem nome<br><span class="mut">192.168.0.20</span></td><td><strong>Compartilhamento de arquivos (SMB) (porta 445)</strong><br><span class="mut">Confirme quem tem acesso e que o SMBv1 está desativado.</span></td></tr><tr><td><span class="badge b-info">Info</span></td><td>Dispositivo sem nome<br><span class="mut">192.168.0.20</span></td><td><strong>Fabricante não identificado</strong><br><span class="mut">Celulares modernos usam MAC privado, então é comum. Se não reconhece o aparelho, investigue.</span></td></tr></tbody></table></div>
+<h2>Dispositivos</h2>
+<div class="tw"><table><thead><tr><th>IP</th><th>Dispositivo</th><th>Portas abertas</th><th>Risco</th></tr></thead>
+<tbody><tr><td>192.168.0.1</td><td>roteador.local<span class="tag">Roteador/gateway</span><br><span class="mut">TP-Link · AA:BB:CC:00:00:01</span></td><td>80/http, 23/telnet</td><td><span class="badge b-alto">Alto</span></td></tr><tr><td>192.168.0.20</td><td>Dispositivo sem nome<span class="tag tag-novo">Novo</span><br><span class="mut">— · AA:BB:CC:00:00:20</span></td><td>554/rtsp, 445/microsoft-ds</td><td><span class="badge b-medio">Médio</span></td></tr><tr><td>192.168.0.5</td><td>raspberrypi<span class="tag">Este Pi</span><br><span class="mut">— · B8:27:EB:00:00:05</span></td><td>22/ssh, 445/smb</td><td><span class="badge b-baixo">Baixo</span></td></tr></tbody></table></div>
+<h2>Não apareceram desta vez</h2><ul><li>notebook-antigo (192.168.0.33)</li></ul>
+<footer>Gerado pelo Auditor de Rede Portátil v1.0.0. Este relatório contém informações sensíveis
+da rede: guarde com cuidado e use somente em redes autorizadas.</footer>
+</main></body></html>

@@ -1,0 +1,13 @@
+[Unit]
+Description=Auditor de Rede Portátil
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/python3 /opt/auditor-rede/auditor.py --boot
+Nice=10
+TimeoutStartSec=infinity
+
+[Install]
+WantedBy=multi-user.target
